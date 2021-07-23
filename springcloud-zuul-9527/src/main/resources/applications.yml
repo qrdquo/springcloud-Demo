@@ -1,0 +1,28 @@
+server:
+  port: 9527
+spring:
+  application:
+    name: springcloud-zuul
+
+#Eureka配置----------------------------------------------------------------
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/ #eureka注册中心的连接地址
+  instance:
+    instance-id: springcloud-zuul-9527         #修改eureka上默认描述信息
+
+#Zuul配置------------------------------------------------------------------
+zuul:
+  routes:
+      consumer.serviceId: springcloud-consumer
+      consumer.path: /consumer/**
+  #配置网关路由的前缀
+  prefix: /myweb
+  #忽略掉所有接口路径
+  ignored-patterns: "*"
+  #禁用异常拦截器，如果需要使用自定义异常拦截器那么就必须禁用默认的异常拦截器
+  #但是使用全局异常错误页面必须要启动默认的异常过滤器，因此全局异常页面和自定义异常过滤器有冲突，二选一即可
+  SendErrorFilter:
+    error:
+      disable: false

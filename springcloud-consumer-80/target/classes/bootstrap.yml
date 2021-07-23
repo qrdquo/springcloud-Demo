@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: springcloud-consumer  #告诉服务端，服务实例的名字
+  cloud:
+    config:
+      profile: dev80
+      label: master
+      uri: http://localhost:8888/
+      username: liyawei
+      password: 123456

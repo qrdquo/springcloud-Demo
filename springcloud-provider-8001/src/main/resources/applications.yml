@@ -1,0 +1,33 @@
+server:
+  port: 8001
+
+#mybatis配置---------------------------------------------------------
+mybatis:
+  mapper-locations: classpath:/mybatis/mapper/*.xml
+  config-location: classpath:/mybatis/mybatis-config.xml
+  type-aliases-package: com.awei.pojo
+
+#spring配置----------------------------------------------------------
+spring:
+  application:
+    name: springcloud-provider  #告诉服务端，服务实例的名字
+  datasource:
+    url: jdbc:mysql://localhost:3306/dept?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone = GMT
+    username: root
+    password: 3306
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+
+#Eureka配置-----------------------------------------------------------
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/ #eureka注册中心的连接地址
+  instance:
+    instance-id: springcloud-provider-8001        #修改eureka上默认描述信息
+
+#info配置 加actuator依赖(修改eureka上默认描述信息)项目可能很多微服务---------------------------------------------------
+info:
+  app.name: 这是一个订单提供者服务
+  company.name: awei.studyJava.com
+

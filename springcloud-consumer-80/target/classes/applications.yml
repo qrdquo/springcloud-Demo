@@ -1,0 +1,16 @@
+server:
+  port: 80
+spring:
+  application:
+    name: springcloud-consumer
+#Eureka配置-----------------------------------------------------------
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/ #eureka注册中心的连接地址
+  instance:
+    instance-id: springcloud-consumer-80        #修改eureka上默认描述信息
+#feign需要开启开启hystrix功能----------------------------------------------------------------
+feign:
+  circuitbreaker:
+    enabled: true

@@ -1,0 +1,7 @@
+server:
+  port: 3721 #访问http://localhost:3721/hystrix即可成功进入仪表盘界面
+
+  #解决dashboard出现Unable to connect to Command Metric Stream.
+hystrix:
+  dashboard:
+    proxy-stream-allow-list: "localhost"

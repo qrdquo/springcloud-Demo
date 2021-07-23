@@ -1,0 +1,18 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: springcloud-config-8888
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/rdquo/springcloud-config.git
+          search-paths: config
+          username: 1943946284@qq.com
+          password: Liyawei17805423387
+#Config的安全认证配置访问账号和密码 ，各个微服务访问config需要验证账号密码
+  security:
+    user:
+      name: liyawei
+      password: 123456

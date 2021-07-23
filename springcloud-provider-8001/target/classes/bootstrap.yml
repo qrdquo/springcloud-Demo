@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: springcloud-provider  #告诉服务端，服务实例的名字
+  cloud:
+    config:
+      profile: dev8001
+      label: master
+      uri: http://localhost:8888/
+      username: liyawei
+      password: 123456
